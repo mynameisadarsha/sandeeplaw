@@ -6,11 +6,16 @@ import {
   ConsultationTier 
 } from '../types';
 
+import heroChambers from '../assets/images/hero_law_chambers_1793887121363.jpg';
+import advocatePortrait from '../assets/images/advocate_portrait_1793887123784.jpg';
+import landRecords from '../assets/images/land_records_scrutiny_1793887122666.jpg';
+import courtroomDefense from '../assets/images/courtroom_defense_1793887123796.jpg';
+
 export const LEGAL_ASSETS = {
-  heroChambers: '/src/assets/images/hero_law_chambers_1793887121363.jpg',
-  advocatePortrait: '/src/assets/images/advocate_portrait_1793887123784.jpg',
-  landRecords: '/src/assets/images/land_records_scrutiny_1793887122666.jpg',
-  courtroomDefense: '/src/assets/images/courtroom_defense_1793887123796.jpg',
+  heroChambers,
+  advocatePortrait,
+  landRecords,
+  courtroomDefense,
 };
 
 export const BENCH_CREDENTIALS = {
