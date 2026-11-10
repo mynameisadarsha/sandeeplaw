@@ -1,60 +1,53 @@
 import React, { useState } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
-import { BENCH_CREDENTIALS } from '../data/legalData';
+import { Menu, X, Phone, Mail } from 'lucide-react';
+import { CHAMBER_DETAILS } from '../data/legalData';
 
-interface NavbarProps {
-  onOpenBooking: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
+export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-8 px-6 py-4">
-        {/* Zone 1: Single text element wordmark */}
+        {/* Brand Name */}
         <a 
           href="#" 
-          className="font-serif-title text-xl md:text-2xl font-bold tracking-tight text-slate-900 hover:text-amber-800 transition-colors whitespace-nowrap shrink-0"
+          className="font-serif-title text-lg sm:text-xl font-bold tracking-tight text-slate-900 hover:text-amber-800 transition-colors whitespace-nowrap shrink-0"
         >
-          Sandeep Law Bench
+          {CHAMBER_DETAILS.chamberName}
         </a>
 
-        {/* Zone 2: 4-5 concise single-line text navigation links */}
+        {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
-          <a href="#services" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
-            Legal Services
+          <a href="#practice-areas" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
+            Areas of Practice
           </a>
-          <a href="#document-checklist" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
-            Land Papers Guide
+          <a href="#chambers-profile" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
+            Chambers Profile
           </a>
-          <a href="#chambers" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
-            Advocate Profile
-          </a>
-          <a href="#verdicts" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
-            Case Studies
-          </a>
-          <a href="#fees" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
-            Consultation Fees
+          <a href="#chambers-contact" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
+            Contact & Address
           </a>
         </nav>
 
-        {/* Zone 3: 1 primary action */}
-        <div className="hidden sm:flex items-center gap-5 shrink-0">
+        {/* Direct Contact Links (No Buttons) */}
+        <div className="hidden sm:flex items-center gap-6 shrink-0 text-xs">
           <a 
-            href={`tel:${BENCH_CREDENTIALS.chamberPhone.replace(/\s+/g, '')}`}
-            className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0"
-            title="Chambers Direct Line"
+            href={`tel:${CHAMBER_DETAILS.phone}`}
+            className="flex items-center gap-1.5 font-semibold text-slate-800 hover:text-amber-800 transition-colors whitespace-nowrap shrink-0"
+            title="Direct Chamber Phone"
           >
             <Phone className="w-3.5 h-3.5 text-amber-700" />
-            <span className="font-mono tabular-nums">{BENCH_CREDENTIALS.chamberPhone}</span>
+            <span className="font-mono tabular-nums">{CHAMBER_DETAILS.phoneDisplay}</span>
           </a>
-          <button
-            onClick={onOpenBooking}
-            className="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-slate-900 hover:bg-slate-800 transition-colors rounded-sm whitespace-nowrap shrink-0 shadow-sm"
+
+          <a 
+            href={`mailto:${CHAMBER_DETAILS.email}`}
+            className="flex items-center gap-1.5 font-medium text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0"
+            title="Chambers Email"
           >
-            Book Consultation
-          </button>
+            <Mail className="w-3.5 h-3.5 text-amber-700" />
+            <span>{CHAMBER_DETAILS.email}</span>
+          </a>
         </div>
 
         {/* Mobile menu trigger */}
@@ -69,61 +62,48 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-6 py-5 space-y-4 shadow-lg">
+        <div className="md:hidden bg-white border-b border-slate-200 px-6 py-5 space-y-4 shadow-md">
+          <div className="text-xs text-slate-500 pb-2 border-b border-slate-100">
+            <span className="font-semibold text-slate-900">{CHAMBER_DETAILS.founder}</span> · {CHAMBER_DETAILS.qualifications}
+          </div>
           <nav className="flex flex-col space-y-3 text-sm font-medium text-slate-700">
             <a 
-              href="#services" 
+              href="#practice-areas" 
               onClick={() => setMobileMenuOpen(false)} 
               className="hover:text-slate-900 transition-colors py-1"
             >
-              Legal Services
+              Areas of Practice
             </a>
             <a 
-              href="#document-checklist" 
+              href="#chambers-profile" 
               onClick={() => setMobileMenuOpen(false)} 
               className="hover:text-slate-900 transition-colors py-1"
             >
-              Land Papers Guide
+              Chambers Profile
             </a>
             <a 
-              href="#chambers" 
+              href="#chambers-contact" 
               onClick={() => setMobileMenuOpen(false)} 
               className="hover:text-slate-900 transition-colors py-1"
             >
-              Advocate Profile
-            </a>
-            <a 
-              href="#verdicts" 
-              onClick={() => setMobileMenuOpen(false)} 
-              className="hover:text-slate-900 transition-colors py-1"
-            >
-              Case Studies
-            </a>
-            <a 
-              href="#fees" 
-              onClick={() => setMobileMenuOpen(false)} 
-              className="hover:text-slate-900 transition-colors py-1"
-            >
-              Consultation Fees
+              Contact & Address
             </a>
           </nav>
-          <div className="pt-3 border-t border-slate-200 flex flex-col gap-3">
+          <div className="pt-3 border-t border-slate-200 flex flex-col gap-2.5 text-xs">
             <a 
-              href={`tel:${BENCH_CREDENTIALS.chamberPhone.replace(/\s+/g, '')}`}
-              className="flex items-center gap-2 text-xs font-semibold text-slate-700 py-1"
+              href={`tel:${CHAMBER_DETAILS.phone}`}
+              className="flex items-center gap-2 font-semibold text-slate-900 py-1"
             >
               <Phone className="w-4 h-4 text-amber-700" />
-              <span>Chamber Line: {BENCH_CREDENTIALS.chamberPhone}</span>
+              <span>Call: {CHAMBER_DETAILS.phoneDisplay}</span>
             </a>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking();
-              }}
-              className="w-full py-2.5 text-center text-xs font-semibold uppercase tracking-wider text-white bg-slate-900 hover:bg-slate-800 transition-colors rounded-sm shadow-sm"
+            <a 
+              href={`mailto:${CHAMBER_DETAILS.email}`}
+              className="flex items-center gap-2 text-slate-600 py-1"
             >
-              Book Consultation Now
-            </button>
+              <Mail className="w-4 h-4 text-amber-700" />
+              <span>{CHAMBER_DETAILS.email}</span>
+            </a>
           </div>
         </div>
       )}
