@@ -1,7 +1,7 @@
 import { PracticeArea, ChamberDetails } from '../types';
 
 export const CHAMBER_DETAILS: ChamberDetails = {
-  chamberName: "ADV.SANDEEP'S LAW CHAMBERS",
+  chamberName: "ADV. SANDEEP'S LAW CHAMBERS",
   founder: "Adv. Sandeep Kumar R",
   designation: "Founder & Proprietor",
   qualifications: "BA, LL.B",
@@ -19,18 +19,23 @@ export const PRACTICE_AREAS: PracticeArea[] = [
   {
     id: 'property_law',
     title: 'Property Law',
-    shortDesc: 'Comprehensive legal counsel on real estate ownership, boundary protection, possession rights, and property disputes.',
+    shortDesc: 'Comprehensive legal counsel on real estate ownership, Khata documentation, possession rights, and property disputes in Bengaluru.',
     scopeItems: [
+      'BBMP/ Greater Bengaluru Authority (GBA) E-Khata',
+      'Gram Panchayat Khata & E-Khata',
+      'A-Khata & B-Khata related Documentation',
+      'Khata transfer & Mutation-related Documentation',
+      'Property Tax records & supporting documents',
       'Dispute resolution in ancestral and acquired properties',
       'Injunction suits to protect physical possession and boundaries',
       'Partition suits and declaration of ownership rights',
-      'Landlord and tenant disputes, eviction proceedings, and lease claims',
-      'RERA dispute representation and builder compliance scrutiny'
+      'Landlord and tenant disputes, eviction proceedings, and lease claims'
     ],
     statutes: [
+      'Karnataka Municipal Corporations Act / BBMP Act',
       'Transfer of Property Act, 1882',
-      'Specific Relief Act, 1963',
-      'RERA Act, 2016'
+      'Karnataka Land Revenue Act, 1964',
+      'Specific Relief Act, 1963'
     ]
   },
   {
